@@ -31,13 +31,6 @@ async function request(path, options = {}) {
 // Jeu  — /api/game
 // ─────────────────────────────────────────────
 
-/** Démarre une nouvelle partie. Retourne un GameStateDTO. */
-export const startGame = ({ mode, firstPlayer, ligne, col, index, profondeur }) =>
-  request("/game/start", {
-    method: "POST",
-    body: JSON.stringify({ mode, firstPlayer, ligne, col, index, profondeur }),
-  });
-
 /** Récupère l'état courant sans jouer de coup. */
 export const getState = (gameId) =>
   request(`/game/${gameId}`);
