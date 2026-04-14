@@ -1,11 +1,11 @@
-const API_URL = "https://connect-4-backend-1.onrender.com";
+const BASE_URL = "http://localhost:8080/api";
 
 // ─────────────────────────────────────────────
 // Helpers
 // ─────────────────────────────────────────────
 
 async function request(path, options = {}) {
-  const res = await fetch(`${API_URL}${path}`, {
+  const res = await fetch(`${BASE_URL}${path}`, {
     headers: { "Content-Type": "application/json" },
     ...options,
   });
