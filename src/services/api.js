@@ -1,9 +1,21 @@
-const BASE_URL = "http://localhost:8080/api";
 const API_URL = "https://connect-4-backend-1.onrender.com";
 
 // ─────────────────────────────────────────────
 // Helpers
 // ─────────────────────────────────────────────
+export async function startGame(data) {
+  const response = await fetch(`${API_URL}/api/game/start`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    throw new Error("Erreur API");
+  }
+
+  return response.json();
+}
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE_URL}${path}`, {
