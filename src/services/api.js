@@ -20,7 +20,7 @@ async function request(path, options = {}) {
 
 /** Démarre une nouvelle partie. Retourne un GameStateDTO. */
 export const startGame = ({ mode, firstPlayer, ligne, col, index, profondeur }) =>
-  request("/game/start", {
+  request("/api/game/start", {
     method: "POST",
     body: JSON.stringify({ mode, firstPlayer, ligne, col, index, profondeur }),
   });
